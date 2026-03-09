@@ -114,6 +114,11 @@ export const zh_CN: TranslationMap = {
     showCronSessions: "显示定时任务会话",
     showCronSessionsHidden: "显示定时任务会话 (已隐藏 {count} 个)",
     onboardingDisabled: "引导期间禁用",
+    hasAttachmentsPlaceholder: "添加消息或粘贴更多图像...",
+    noAttachmentsPlaceholder: "消息 (↩ 发送, Shift+↩ 换行, 可直接粘贴图像)",
+    connectedPlaceholder: "连接到网关以开始聊天…",
+    send: "发送",
+    queue: "排队",
   },
   languages: {
     en: "English",

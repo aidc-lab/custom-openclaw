@@ -33,7 +33,8 @@
   --border-strong: #3f3f46;
   --border-hover: #52525b;
   --input: #27272a;
-  --ring: #ff5c5c;
+  /* --ring: #ff5c5c; */
+  --ring: #e4e4e7;
 
   /* Accent - Punchy signature red */
   --accent: #ff5c5c;
@@ -143,13 +144,17 @@
   --border-hover: #a1a1aa;
   --input: #e4e4e7;
 
-  --accent: #dc2626;
-  --accent-hover: #ef4444;
-  --accent-muted: #dc2626;
+  /* --accent: #dc2626; */
+  /* --accent-hover: #ef4444;
+  --accent-muted: #dc2626; */
+  --accent: #242e42;
+  --accent-hover: #2e4060;
+  --accent-muted: #242e42;
   --accent-subtle: rgba(220, 38, 38, 0.12);
   --accent-foreground: #ffffff;
   --accent-glow: rgba(220, 38, 38, 0.15);
-  --primary: #dc2626;
+  /* --primary: #dc2626; */
+  --primary: #242e42;
   --primary-foreground: #ffffff;
 
   --secondary: #f4f4f5;

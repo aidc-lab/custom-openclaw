@@ -97,8 +97,8 @@
 }
 
 .chat-avatar.user {
-  background: var(--accent-subtle);
-  color: var(--accent);
+  background: #55bc8a;
+  color: white;
 }
 
 .chat-avatar.assistant {

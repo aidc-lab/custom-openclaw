@@ -1,6 +1,7 @@
 import { html, nothing } from "lit";
 import { ref } from "lit/directives/ref.js";
 import { repeat } from "lit/directives/repeat.js";
+import { t } from "../../i18n/index.ts";
 import {
   renderMessageGroup,
   renderReadingIndicatorGroup,
@@ -12,8 +13,8 @@ import { detectTextDirection } from "../text-direction.ts";
 import type { SessionsListResult } from "../types.ts";
 import type { ChatItem, MessageGroup } from "../types/chat-types.ts";
 import type { ChatAttachment, ChatQueueItem } from "../ui-types.ts";
-import { renderMarkdownSidebar } from "./markdown-sidebar.ts";
 import "../components/resizable-divider.ts";
+import { renderMarkdownSidebar } from "./markdown-sidebar.ts";
 
 export type CompactionIndicatorStatus = {
   active: boolean;
@@ -252,9 +253,9 @@ export function renderChat(props: ChatProps) {
   const hasAttachments = (props.attachments?.length ?? 0) > 0;
   const composePlaceholder = props.connected
     ? hasAttachments
-      ? "Add a message or paste more images..."
-      : "Message (↩ to send, Shift+↩ for line breaks, paste images)"
-    : "Connect to the gateway to start chatting…";
+      ? t("chat.hasAttachmentsPlaceholder")
+      : t("chat.noAttachmentsPlaceholder")
+    : t("chat.connectedPlaceholder");
 
   const splitRatio = props.splitRatio ?? 0.6;
   const sidebarOpen = Boolean(props.sidebarOpen && props.onCloseSidebar);
@@ -329,6 +330,7 @@ export function renderChat(props: ChatProps) {
               @click=${props.onToggleFocusMode}
               aria-label="Exit focus mode"
               title="Exit focus mode"
+              style="display: none;"
             >
               ${icons.x}
             </button>
@@ -462,6 +464,7 @@ export function renderChat(props: ChatProps) {
               class="btn"
               ?disabled=${!props.connected || (!canAbort && props.sending)}
               @click=${canAbort ? props.onAbort : props.onNewSession}
+              style="display: none;"
             >
               ${canAbort ? "Stop" : "New session"}
             </button>
@@ -470,7 +473,7 @@ export function renderChat(props: ChatProps) {
               ?disabled=${!props.connected}
               @click=${props.onSend}
             >
-              ${isBusy ? "Queue" : "Send"}<kbd class="btn-kbd">↵</kbd>
+              ${isBusy ? t("chat.queue") : t("chat.send")}<kbd class="btn-kbd">↵</kbd>
             </button>
           </div>
         </div>

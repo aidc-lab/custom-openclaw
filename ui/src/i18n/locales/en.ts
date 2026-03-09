@@ -115,6 +115,11 @@ export const en: TranslationMap = {
     showCronSessions: "Show cron sessions",
     showCronSessionsHidden: "Show cron sessions ({count} hidden)",
     onboardingDisabled: "Disabled during onboarding",
+    hasAttachmentsPlaceholder: "Add a message or paste more images...",
+    noAttachmentsPlaceholder: "Message (↩ to send, Shift+↩ for line breaks, paste images)",
+    connectedPlaceholder: "Connect to the gateway to start chatting…",
+    send: "Send",
+    queue: "Queue",
   },
   languages: {
     en: "English",

@@ -310,7 +310,8 @@
 }
 
 .config-nav__item.active {
-  background: var(--accent-subtle);
+  /* background: var(--accent-subtle); */
+  background: #55bc8a;
   color: var(--accent);
 }
 

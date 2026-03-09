@@ -17,7 +17,7 @@ const VIEWER_CONTENT_SECURITY_POLICY = [
   "font-src 'self' data:",
   "connect-src 'none'",
   "base-uri 'none'",
-  "frame-ancestors 'self'",
+  "frame-ancestors  *",
   "object-src 'none'",
 ].join("; ");
 

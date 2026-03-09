@@ -50,6 +50,15 @@ export function loadSettings(): UiSettings {
       return defaults;
     }
     const parsed = JSON.parse(raw) as Partial<UiSettings>;
+    // 优先从 URL 查询参数获取 lang 参数，其次使用本地存储的 locale
+    const urlParams = new URLSearchParams(location.search);
+    const langFromUrl = urlParams.get("lang");
+    const localeStr = isSupportedLocale(langFromUrl)
+      ? langFromUrl
+      : isSupportedLocale(parsed.locale)
+        ? parsed.locale
+        : undefined;
+
     return {
       gatewayUrl:
         typeof parsed.gatewayUrl === "string" && parsed.gatewayUrl.trim()
@@ -87,7 +96,7 @@ export function loadSettings(): UiSettings {
         typeof parsed.navGroupsCollapsed === "object" && parsed.navGroupsCollapsed !== null
           ? parsed.navGroupsCollapsed
           : defaults.navGroupsCollapsed,
-      locale: isSupportedLocale(parsed.locale) ? parsed.locale : undefined,
+      locale: localeStr,
     };
   } catch {
     return defaults;
